@@ -26,7 +26,6 @@ public:
         sort(words.begin(), words.end());
         auto root = new TireNode();
         TireNode *head = root;
-        root->flag = true;
         string res;
         for (auto &&s : words)
         {
@@ -61,7 +60,7 @@ public:
     {
         for (auto &&c : s)
         {
-            if (head->flag == false)
+            if (head->children[c - 'a']->flag == false)
             {
                 return false;
             }
