@@ -18,7 +18,7 @@ public:
     {
         bool flag;
         vector<TireNode *> children;
-        TireNode() : flag(false), children(26, nullptr){};
+        TireNode() : flag(false), children(26, nullptr) {}
     };
 
     string longestWord(vector<string> &words)
