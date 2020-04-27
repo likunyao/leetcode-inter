@@ -28,8 +28,7 @@ public:
             temp.clear();
         }
         set<string> filter(save.begin(), save.end());
-        save.assign(filter.begin(), filter.end());
-        return save.size();
+        return filter.size();
     }
 };
 // @lc code=end
