@@ -36,6 +36,11 @@ public:
     }
     TreeNode *dfs(int start, int end, const vector<int> &preorder)
     {
+        if (start > end)
+        {
+            return nullptr;
+        }
+
         if (start == end)
         {
             return new TreeNode(preorder[start]);
@@ -43,14 +48,9 @@ public:
 
         TreeNode *root = new TreeNode(preorder[start]);
         int r = help(start, end, preorder);
-        if (r != start + 1)
-        {
-            root->left = dfs(start + 1, r - 1, preorder);
-        }
-        if (r <= end)
-        {
-            root->right = dfs(help(start, end, preorder), end, preorder);
-        }
+
+        root->left = dfs(start + 1, r - 1, preorder);
+        root->right = dfs(r, end, preorder);
 
         return root;
     }
